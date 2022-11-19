@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author igust
@@ -35,7 +37,7 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         cBln = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
-        JumlahHari = new javax.swing.JLabel();
+        lJumlahHari = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         bHitung = new javax.swing.JButton();
         bHapus = new javax.swing.JButton();
@@ -87,7 +89,7 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 255));
 
-        JumlahHari.setText("Jumlah Hari Adalah");
+        lJumlahHari.setText("Jumlah Hari Adalah");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -95,20 +97,25 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JumlahHari, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(lJumlahHari, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JumlahHari, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(lJumlahHari, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 0));
 
         bHitung.setText("Hitung");
+        bHitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHitungActionPerformed(evt);
+            }
+        });
 
         bHapus.setText("Hapus");
         bHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +205,32 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bHapusActionPerformed
 
+    private void bHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHitungActionPerformed
+        // TODO add your handling code here:
+        if (tTahun.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Error : isian tahun kosong!", "Error" ,JOptionPane.ERROR_MESSAGE);
+        } else {
+            int tahun = Integer.parseInt(tTahun.getText());
+            int jumlahHari;
+            if (cBln.getSelectedItem().equals("February")){
+                if (((tahun % 4 == 0 ) && !(tahun % 100 == 0 )) || (tahun % 400 == 0)){
+                    jumlahHari = 29;
+                } else { 
+                    jumlahHari = 28;
+                }
+            } else if (cBln.getSelectedItem().equals("April") || 
+                    cBln.getSelectedItem().equals("June") ||
+                    cBln.getSelectedItem().equals("September") ||
+                    cBln.getSelectedItem().equals("November")) {
+                jumlahHari = 30;
+            } else {
+                jumlahHari = 31;
+            }
+            lJumlahHari.setText("Jumlah hari pada bulan " +cBln.getSelectedItem() + " tahun "+ tahun + " adalah " + jumlahHari);
+        }
+   
+    }//GEN-LAST:event_bHitungActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,7 +268,6 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JumlahHari;
     private javax.swing.JButton bHapus;
     private javax.swing.JButton bHitung;
     private javax.swing.JButton bKeluar;
@@ -248,6 +280,7 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lJumlahHari;
     private javax.swing.JTextField tTahun;
     // End of variables declaration//GEN-END:variables
 }

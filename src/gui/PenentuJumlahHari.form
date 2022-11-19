@@ -179,8 +179,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="JumlahHari" min="-2" pref="235" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lJumlahHari" min="-2" pref="136" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -188,14 +188,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JumlahHari" pref="41" max="32767" attributes="0"/>
+                      <Component id="lJumlahHari" pref="41" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="JumlahHari">
+            <Component class="javax.swing.JLabel" name="lJumlahHari">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Jumlah Hari Adalah"/>
               </Properties>
@@ -250,6 +250,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hitung"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bHitungActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="bHapus">
               <Properties>
