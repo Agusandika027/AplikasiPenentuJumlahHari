@@ -134,6 +134,11 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
         });
 
         bKeluar.setText("Keluar");
+        bKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bKeluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -252,6 +257,11 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
             System.err.println("Error : " + e.getMessage());
         }
     }//GEN-LAST:event_bSimpanActionPerformed
+
+    private void bKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKeluarActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_bKeluarActionPerformed
 
     /**
      * @param args the command line arguments
