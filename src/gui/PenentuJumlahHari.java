@@ -5,8 +5,8 @@
  */
 package gui;
 
-import java.io.FileWriter;
 import java.io.BufferedWriter;
+import java.io.FileWriter;
 import javax.swing.JOptionPane;
 
 /**
@@ -43,8 +43,8 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         bHitung = new javax.swing.JButton();
         bHapus = new javax.swing.JButton();
-        bSimpan = new javax.swing.JButton();
         bKeluar = new javax.swing.JButton();
+        bSimpan = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -126,17 +126,17 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
             }
         });
 
-        bSimpan.setText("Simpan");
-        bSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSimpanActionPerformed(evt);
-            }
-        });
-
         bKeluar.setText("Keluar");
         bKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bKeluarActionPerformed(evt);
+            }
+        });
+
+        bSimpan.setText("Simpan");
+        bSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSimpanActionPerformed(evt);
             }
         });
 
@@ -147,7 +147,7 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(bSimpan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,8 +162,8 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bHitung)
                     .addComponent(bHapus)
-                    .addComponent(bSimpan)
-                    .addComponent(bKeluar))
+                    .addComponent(bKeluar)
+                    .addComponent(bSimpan))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
@@ -177,7 +177,7 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,22 +244,21 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
    
     }//GEN-LAST:event_bHitungActionPerformed
 
-    private void bSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimpanActionPerformed
-        // TODO add your handling code here:
-        try {
-            BufferedWriter out = BufferedWriter(new FileWriter("jumlahhari.txt"));
-            out.write(lJumlahHari.getText());
-            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan Kedalam File");
-            out.close();
-        } catch (Exception e) {
-            System.err.println("Error : " + e.getMessage());
-        }
-    }//GEN-LAST:event_bSimpanActionPerformed
-
     private void bKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKeluarActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_bKeluarActionPerformed
+
+    private void bSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimpanActionPerformed
+        // TODO add your handling code here:
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter("jumlahhari.txt"));
+            out.write(lJumlahHari.getText());
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+            out.close();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bSimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,4 +312,8 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
     private javax.swing.JLabel lJumlahHari;
     private javax.swing.JTextField tTahun;
     // End of variables declaration//GEN-END:variables
+
+    private BufferedWriter BufferedWriter(FileWriter fileWriter) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
