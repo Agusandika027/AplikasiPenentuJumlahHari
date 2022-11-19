@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 import javax.swing.JOptionPane;
 
 /**
@@ -125,6 +127,11 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
         });
 
         bSimpan.setText("Simpan");
+        bSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSimpanActionPerformed(evt);
+            }
+        });
 
         bKeluar.setText("Keluar");
 
@@ -230,6 +237,18 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
         }
    
     }//GEN-LAST:event_bHitungActionPerformed
+
+    private void bSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimpanActionPerformed
+        // TODO add your handling code here:
+        try {
+            BufferedWriter out = BufferedWriter(new FileWriter("jumlahhari.txt"));
+            out.write(lJumlahHari.getText());
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan Kedalam File");
+            out.close();
+        } catch (Exception e) {
+            System.err.println("Error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_bSimpanActionPerformed
 
     /**
      * @param args the command line arguments
