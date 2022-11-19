@@ -210,6 +210,9 @@ public class PenentuJumlahHari extends javax.swing.JFrame {
 
     private void bHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHapusActionPerformed
         // TODO add your handling code here:
+        tTahun.setText("");
+        lJumlahHari.setText("Jumlah Hari Adalah");
+        cBln.setSelectedItem("January");
     }//GEN-LAST:event_bHapusActionPerformed
 
     private void bHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHitungActionPerformed
